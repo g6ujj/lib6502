@@ -1,0 +1,23 @@
+# depslib dependency file v1.0
+1318431039 source:/home/ns/Dropbox/sim6502/lib6502/CPU.cpp
+	"CPU.h"
+
+1318431712 /home/ns/Dropbox/sim6502/lib6502/CPU.h
+	"Memory.h"
+	"CPU.h"
+
+1318419441 source:/home/ns/Dropbox/sim6502/lib6502/memory.cpp
+	"memory.h"
+
+1318419054 /home/ns/Dropbox/sim6502/lib6502/memory.h
+	"lib6502.h"
+
+1318420689 /home/ns/Dropbox/sim6502/lib6502/lib6502.h
+	"CPU.h"
+	"Memory.h"
+
+1318774422 /home/ns/Dropbox/sim6502/lib6502/Memory.h
+
+1318768427 source:/home/ns/Dropbox/sim6502/lib6502/Memory.cpp
+	"Memory.h"
+
