@@ -158,13 +158,12 @@ void CPU::ADC(byte op_byte)
 void CPU::ADC(address op_addr)
 {
     ADC(mem->read(op_addr));
-
 }
 
 void CPU::AND(byte op_byte)
 {
     byte aA=regA;
-    aA&op_byte;
+    aA &= op_byte;
     A(aA);
 }
 void CPU::AND(address op_addr)
@@ -1431,4 +1430,4 @@ void CPU::singleStep()
 // TODO (ns#1#): Implement the counter for the number of cycles an instruction takes
     //cycle_clock+= instruction_cycles[opcode];
     ++num_instructions;
-};
+}
