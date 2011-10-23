@@ -21,6 +21,7 @@
  */
 
 #include "Memory.h"
+#include "HexUtils.h"
 
 Memory::Memory()
 {
@@ -29,16 +30,12 @@ Memory::Memory()
         ram[addr]=0;
 }
 
-char Memory::read(address addr)
+byte Memory::read(address addr)
 {
     return ram[addr];
 }
 
-char Memory::read(zpaddr addr)
-{
-    return ram[addr];
-}
-char Memory::read(byte addr)
+byte Memory::read(zpaddr addr)
 {
     return ram[addr];
 }
@@ -50,4 +47,33 @@ void Memory::write(address addr,byte b)
 void Memory::write(zpaddr addr,byte b)
 {
     ram[addr]=b;
+}
+
+string Memory::dump()
+{
+    // Dumps memory in hex format.
+    string rv="";
+    string h="";
+    string c="";
+    for(address a=0; a<4097; a++)
+    {
+        address addr=16*a;
+        int total=0;
+        h=toHex(addr) + " : ";
+        string c="";
+        for(address b=0; b<16; b++)
+        {
+            byte r=ram[addr+b];
+            total+=r;
+            h+=toHex(r)+" ";
+
+            if(isprint(r))
+                c+=r;
+            else
+                c+=".";
+        }
+        if(total>0)
+            rv+=h+" "+c+"\n";
+    }
+    return rv;
 }

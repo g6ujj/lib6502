@@ -22,11 +22,15 @@
 #ifndef MEMORY_H
 #define MEMORY_H
 
+#include <string>
+using namespace std;
+
 typedef unsigned short address;
-typedef char byte;
+typedef unsigned char byte;
 typedef short word;
 typedef unsigned char zpaddr;
 typedef unsigned char stack;
+
 
 #define MAXRAM 65535
 class Memory
@@ -35,13 +39,12 @@ public:
     Memory();
     virtual ~Memory() {};
 
-    char read(address addr);
-    char read(zpaddr addr);
-    char read(byte data);
+    byte read(address addr);
+    byte read(zpaddr addr);
 
     void write(address addr,byte b);
     void write(zpaddr addr,byte b);
-
+    string dump(void);
 protected:
 private:
     byte ram[MAXRAM];
