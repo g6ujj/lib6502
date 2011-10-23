@@ -26,8 +26,9 @@
 #include <string>
 #include "CPU.h"
 #include "Memory.h"
+#include "readIntelHex.h"
 #include "version.h"
 
-
+#include "HexUtils.h"
 
 #endif
