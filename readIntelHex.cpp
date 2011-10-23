@@ -36,13 +36,13 @@ errHRec readIntelHex::loadLine(string theLine, Memory *mem)
 
     if(!theLine.at(0)==':')
     {
-        errMessage="Invalid start character. Expected ':', received '"+theLine.at(0);
+//        errMessage="Invalid start character. Expected ':', received '"+theLine.at(0);
         return HRecInvalidStart;
     }
 
     if(!validChecksum(theLine))
     {
-        errMessage="Invalid checksum, file has '" +theLine.substr(theLine.length()-2)+ " calculated as "+errMessage;
+//        errMessage="Invalid checksum, file has '" +theLine.substr(theLine.length()-2)+ " calculated as "+errMessage;
         return HRecChecksumErr;
     }
 
@@ -109,8 +109,8 @@ bool readIntelHex::validChecksum(string theLine)
 
     long cf=HexToInt(theLine.substr(theLine.length()-2));
     bool rv=(chksum==cf);
-    if(!rv)
-        errMessage=cf;
+//    if(!rv)
+//        errMessage=cf;
     return rv;
 }
 

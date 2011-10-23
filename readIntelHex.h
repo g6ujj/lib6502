@@ -35,7 +35,7 @@ class readIntelHex
         bool openFile(string fName,Memory *ram);
     protected:
     private:
-    string errMessage;
+    //string errMessage;
 
 
     errHRec loadLine(string theLine,Memory *ram);
