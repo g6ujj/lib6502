@@ -122,7 +122,7 @@ bool readIntelHex::openFile(string fName,Memory *ram)
     f.open(cfName);
     if(!f.is_open())
     {
-        cout<<"readIntelHex: Failed to open '"<<fName<<"'."<<endl;
+        //cout<<"readIntelHex: Failed to open '"<<fName<<"'."<<endl;
         return false;
     }
 
@@ -137,7 +137,7 @@ bool readIntelHex::openFile(string fName,Memory *ram)
         f.getline(c,254);
 
         theLine=string(c);
-        cout<<"theLine: "<<theLine<<endl;
+        //cout<<"theLine: "<<theLine<<endl;
         status=loadLine(theLine,ram);
         if(status==HRecTooShort)
         {
@@ -145,6 +145,6 @@ bool readIntelHex::openFile(string fName,Memory *ram)
             return false;
         }
     }
-    cout<<"status was "<<status<<endl;
+    //cout<<"status was "<<status<<endl;
     return status==HRecOk;
 }
