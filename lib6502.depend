@@ -1,23 +1,52 @@
 # depslib dependency file v1.0
-1318431039 source:/home/ns/Dropbox/sim6502/lib6502/CPU.cpp
+1320848590 source:/home/g6ujj/Projects/sim6502/lib6502/Breakpoint.cpp
+	"Breakpoint.h"
+
+1320848644 /home/g6ujj/Projects/sim6502/lib6502/Breakpoint.h
+	"Memory.h"
+
+1319378168 /home/g6ujj/Projects/sim6502/lib6502/Memory.h
+	<string>
+
+1320847408 source:/home/g6ujj/Projects/sim6502/lib6502/BreakpointManager.cpp
+	"BreakpointManager.h"
+
+1320847724 /home/g6ujj/Projects/sim6502/lib6502/BreakpointManager.h
+	"Breakpoint.h"
+	"BreakpointListener.h"
+
+1320847268 /home/g6ujj/Projects/sim6502/lib6502/BreakpointListener.h
+	"Breakpoint.h"
+
+1319462935 source:/home/g6ujj/Projects/sim6502/lib6502/CPU.cpp
+	<cstdio>
 	"CPU.h"
 
-1318431712 /home/ns/Dropbox/sim6502/lib6502/CPU.h
+1319384418 /home/g6ujj/Projects/sim6502/lib6502/CPU.h
 	"Memory.h"
 	"CPU.h"
 
-1318419441 source:/home/ns/Dropbox/sim6502/lib6502/memory.cpp
-	"memory.h"
+1319376632 source:/home/g6ujj/Projects/sim6502/lib6502/HexUtils.cpp
+	"HexUtils.h"
 
-1318419054 /home/ns/Dropbox/sim6502/lib6502/memory.h
-	"lib6502.h"
-
-1318420689 /home/ns/Dropbox/sim6502/lib6502/lib6502.h
-	"CPU.h"
+1319376632 /home/g6ujj/Projects/sim6502/lib6502/HexUtils.h
+	<string>
 	"Memory.h"
 
-1318774422 /home/ns/Dropbox/sim6502/lib6502/Memory.h
+1319379903 source:/home/g6ujj/Projects/sim6502/lib6502/Memory.cpp
+	"Memory.h"
+	"HexUtils.h"
 
-1318768427 source:/home/ns/Dropbox/sim6502/lib6502/Memory.cpp
+1319379968 source:/home/g6ujj/Projects/sim6502/lib6502/readIntelHex.cpp
+	<fstream>
+	<iostream>
+	<sstream>
+	<streambuf>
+	"readIntelHex.h"
+	"HexUtils.h"
+
+1319378682 /home/g6ujj/Projects/sim6502/lib6502/readIntelHex.h
+	<map>
+	<string>
 	"Memory.h"
 

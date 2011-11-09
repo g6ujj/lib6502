@@ -14,22 +14,55 @@
 				<Option compiler="gcc" />
 				<Option createDefFile="1" />
 				<Compiler>
-					<Add option="-Weffc++" />
-					<Add option="-Wextra" />
-					<Add option="-Wall" />
 					<Add option="-g" />
 				</Compiler>
 				<ExtraCommands>
 					<Add after="ar cq obj/Debug/lib6502.a obj/Debug/Memory.o obj/Debug/CPU.o" />
 				</ExtraCommands>
 			</Target>
+			<Target title="OSX Debug">
+				<Option output="lib6502" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
 		</Build>
-		<Unit filename="CPU.cpp" />
-		<Unit filename="CPU.h" />
-		<Unit filename="Memory.cpp" />
-		<Unit filename="Memory.h" />
-		<Unit filename="lib6502.h" />
-		<Unit filename="version.h" />
+		<Compiler>
+			<Add option="-Weffc++" />
+			<Add option="-pedantic" />
+			<Add option="-std=c++0x" />
+			<Add option="-Wextra" />
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="Breakpoint.cpp" />
+		<Unit filename="Breakpoint.h" />
+		<Unit filename="BreakpointListener.h" />
+		<Unit filename="BreakpointManager.cpp" />
+		<Unit filename="BreakpointManager.h" />
+		<Unit filename="CPU.cpp">
+			<Option target="Linux Debug" />
+		</Unit>
+		<Unit filename="CPU.h">
+			<Option target="Linux Debug" />
+		</Unit>
+		<Unit filename="HexUtils.cpp" />
+		<Unit filename="HexUtils.h" />
+		<Unit filename="Memory.cpp">
+			<Option target="Linux Debug" />
+		</Unit>
+		<Unit filename="Memory.h">
+			<Option target="Linux Debug" />
+		</Unit>
+		<Unit filename="lib6502.h">
+			<Option target="Linux Debug" />
+		</Unit>
+		<Unit filename="readIntelHex.cpp" />
+		<Unit filename="readIntelHex.h" />
+		<Unit filename="version.h">
+			<Option target="Linux Debug" />
+		</Unit>
 		<Extensions>
 			<envvars />
 			<code_completion />
