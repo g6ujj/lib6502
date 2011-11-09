@@ -44,6 +44,9 @@ public:
     CPU& operator=(const CPU&);
     virtual ~CPU() {};
 
+    void singleStep();
+    void run();
+
     byte getA()
     {
         return regA;
@@ -138,7 +141,7 @@ private:
     // Addressing modes
     void push(byte b);
     byte pull();
-    void singleStep();
+
 };
 
 #endif // CPU_H

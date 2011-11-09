@@ -416,7 +416,7 @@ void CPU::interrupt(address vector,byte flag)
     else
     {
         s_byte=pc/256;
-        push(s_byte);
+        push((byte)s_byte);
         s_byte=pc & 0xFF;
         push(s_byte);
         B(false);
@@ -1430,4 +1430,32 @@ void CPU::singleStep()
 // TODO (ns#1#): Implement the counter for the number of cycles an instruction takes
     //cycle_clock+= instruction_cycles[opcode];
     ++num_instructions;
+}
+
+void CPU::run()
+{
+// TODO (g6ujj#1#): Need to implement breakpoints
+    bool breakPointSet=false;
+    long stopAt=50000;
+    while(!breakPointSet)
+    {
+        singleStep();
+        if(stopAt--==0)
+            break;
+    }
+}
+
+void CPU::push(byte b)
+{
+    address a=0x100+regSP;
+    mem->write(a,b);
+    regSP--;
+}
+
+byte CPU::pull(void)
+{
+    regSP++;
+    address a=0x100+regSP;
+    byte rv=mem->read(a);
+    return rv;
 }
