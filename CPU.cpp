@@ -312,8 +312,8 @@ void CPU::ROR(address op_addr)
 
 byte CPU::zp()
 {
-    byte zpaddr=mem->read(pc++);
-    return zpaddr;
+    byte addr=mem->read(pc++);
+    return addr;
 }
 byte  CPU::zp_x()
 {
@@ -329,21 +329,21 @@ byte  CPU::zp_x()
     * from $007F (e.g. $80 + $FF => $7F) and not $017F.
     */
 
-    zpaddr zp_addr = mem->read(pc) + regX;
-//    if(zp_addr>0xFF)
-//		zp_addr-= 0x100;
-    return zp_addr;
+    zpaddr addr = mem->read(pc) + regX;
+//    if(addr>0xFF)
+//		addr-= 0x100;
+    return addr;
 }
 byte  CPU::zp_y()
 {
-    byte zp_addr=mem->read(pc)+regY;
-    return zp_addr;
+    byte addr=mem->read(pc)+regY;
+    return addr;
 }
 address  CPU::zp_indirect()
 {
-    zpaddr zp_addr=mem->read(pc++);
-    address op_addr=(address)mem->read(zp_addr++);
-    op_addr+=256*mem->read(zp_addr);
+    zpaddr addr=mem->read(pc++);
+    address op_addr=(address)mem->read(addr++);
+    op_addr+=256*mem->read(addr);
     return op_addr;
 }
 address  CPU::immediate()
@@ -359,9 +359,9 @@ address  CPU::indirect_x()
 }
 address  CPU::indirect_y()
 {
-    zpaddr zp_addr=mem->read(pc++);
-    address op_base=mem->read(zp_addr++);
-    address op_addr=mem->read(zp_addr);
+    zpaddr addr=mem->read(pc++);
+    address op_base=mem->read(addr++);
+    address op_addr=mem->read(addr);
 
     op_addr = op_base + 256*op_addr + regY;
 
@@ -462,11 +462,11 @@ void CPU::singleStep()
         break;
     case 0x04: //TSB
     {
-        zpaddr zp_addr=zp();
-        byte zp_byte=mem->read(zp_addr);
+        zpaddr addr=zp();
+        byte zp_byte=mem->read(addr);
         Z((regA & zp_byte)?0:1);
         zp_byte|=regA;
-        mem->write(zp_addr,zp_byte);
+        mem->write(addr,zp_byte);
         break;
     }
     case 0x05:
@@ -533,11 +533,11 @@ void CPU::singleStep()
     }
     case 0x14: // TRB
     {
-        zpaddr zp_addr=zp();
-        byte zp_byte=mem->read(zp_addr);
+        zpaddr addr=zp();
+        byte zp_byte=mem->read(addr);
         Z((regA & zp_byte)?0:1);
         zp_byte &= ~regA;
-        mem->write(zp_addr,zp_byte);
+        mem->write(addr,zp_byte);
         break;
     }
     case 0x15: // ORA
@@ -824,8 +824,8 @@ void CPU::singleStep()
     }
     case 0x64: // STZ
     {
-        address zp_addr = zp();
-        write(zp_addr,0);
+        address addr = zp();
+        write(addr,0);
         break;
     }
     case 0x65: // ADC
@@ -892,8 +892,8 @@ void CPU::singleStep()
     }
     case 0x74: // STZ
     {
-        zpaddr zp_addr=zp_x();
-        mem->write(zp_addr,0);
+        zpaddr addr=zp_x();
+        mem->write(addr,0);
         break;
     }
     case 0x75: // ADC
@@ -952,20 +952,20 @@ void CPU::singleStep()
     }
     case 0x84: // STY
     {
-        zpaddr zp_addr =zp();
-        mem->write(zp_addr,regY);
+        zpaddr addr =zp();
+        mem->write(addr,regY);
         break;
     }
     case 0x85: // STA
     {
-        zpaddr zp_addr=zp();
-        mem->write(zp_addr,regA);
+        zpaddr addr=zp();
+        mem->write(addr,regA);
         break;
     }
     case 0x86: // STX
     {
-        zpaddr zp_addr=zp();
-        mem->write(zp_addr,regX);
+        zpaddr addr=zp();
+        mem->write(addr,regX);
         break;
     }
     case 0x88: // DEY
@@ -1023,20 +1023,20 @@ void CPU::singleStep()
     }
     case 0x94: // STY
     {
-        zpaddr zp_addr=zp_x();
-        mem->write(zp_addr,regY);
+        zpaddr addr=zp_x();
+        mem->write(addr,regY);
         break;
     }
     case 0x95: // STA
     {
-        zpaddr zp_addr = zp_x();
-        mem->write(zp_addr,regA);
+        zpaddr addr = zp_x();
+        mem->write(addr,regA);
         break;
     }
     case 0x96: // STX
     {
-        zpaddr zp_addr=zp_y();
-        mem->write(zp_addr,regX);
+        zpaddr addr=zp_y();
+        mem->write(addr,regX);
         break;
     }
     case 0x98: // TYA
