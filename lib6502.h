@@ -24,6 +24,9 @@
 
 
 #include <string>
+#include "Breakpoint.h"
+#include "BreakpointListener.h"
+#include "BreakpointManager.h"
 #include "CPU.h"
 #include "Memory.h"
 #include "readIntelHex.h"
