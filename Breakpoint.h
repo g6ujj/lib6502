@@ -24,20 +24,22 @@ class Breakpoint
 {
     public:
         /** Default constructor */
-        Breakpoint(): enabled(false), bval(0), wVal(0),flags(0) {};
+        Breakpoint(): enabled(false), bVal(0), wVal(0),flags(0) {};
         /** Default destructor */
         virtual ~Breakpoint();
         /** Copy constructor
          *  \param other Object to copy from
          */
-        Breakpoint(const Breakpoint& other):enabled(other.enabled),bval(other.bval),wVal(other.wVal),flags(other.flags) {};
+        Breakpoint(const Breakpoint& other):enabled(other.enabled),bVal(other.bVal),wVal(other.wVal),flags(other.flags) {};
         /** Assignment operator
          *  \param other Object to assign from
          *  \return A reference to this
          */
         Breakpoint& operator=(const Breakpoint& other);
+        bool operator==(const Breakpoint& other) const;
+        bool operator!=(const Breakpoint& other) const;
 
-        Breakpoint(address addr);
+        Breakpoint(address addr):enabled(true),bVal(0),wVal(addr),flags(bp_PC | bp_equal){};
         Breakpoint(address, byte b);
         void enable() {enabled=true;}
         void disable() {enabled=false;}
@@ -45,10 +47,11 @@ class Breakpoint
         bool isAutomatic(){return wVal;}
         bpFlags_t getOperandFlags(){return flags & bp_operand;}
         bpFlags_t getConditionFlags(){return flags & bp_condition;}
+        bool Equals(bpFlags_t flags, address addr, byte aByte);
     protected:
     private:
     bool enabled;
-    unsigned char bval;
+    unsigned char bVal;
     address wVal;
     bpFlags_t flags;
 };
