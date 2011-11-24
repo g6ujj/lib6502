@@ -17,7 +17,7 @@
 					<Add option="-g" />
 				</Compiler>
 				<ExtraCommands>
-					<Add after="ar cq obj/Debug/lib6502.a obj/Debug/Memory.o obj/Debug/CPU.o" />
+					<Add after="ar cq obj/Debug/lib6502.a obj/Debug/*.o" />
 				</ExtraCommands>
 			</Target>
 			<Target title="OSX Debug">
