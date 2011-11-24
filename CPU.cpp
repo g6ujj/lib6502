@@ -23,7 +23,7 @@
 using namespace std;
 #include <cstdio>
 #include "CPU.h"
-
+#include "BreakpointManager.h"
 
 void CPU::A(byte newA)
 {
@@ -443,7 +443,10 @@ void CPU::singleStep()
             interrupt(RES_VECTOR, F_RESET);
     }
 
+    // Check for a breakpoint hit
+
     op_code=mem->read(pc++);
+
     switch (op_code)
     {
     case 0x00: //BRK
