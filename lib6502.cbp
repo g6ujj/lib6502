@@ -36,11 +36,6 @@
 			<Add option="-Wextra" />
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="Breakpoint.cpp" />
-		<Unit filename="Breakpoint.h" />
-		<Unit filename="BreakpointListener.h" />
-		<Unit filename="BreakpointManager.cpp" />
-		<Unit filename="BreakpointManager.h" />
 		<Unit filename="CPU.cpp">
 			<Option target="Linux Debug" />
 		</Unit>

@@ -1,20 +1,32 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Linux Debug" />
-	<File name="CPU.cpp" open="1" top="1" tabpos="2">
+	<File name="CPU.cpp" open="1" top="1" tabpos="0">
+		<Cursor position="0" topLine="27" />
+	</File>
+	<File name="CPU.h" open="0" top="0" tabpos="2">
+		<Cursor position="1171" topLine="24" />
+	</File>
+	<File name="HexUtils.cpp" open="0" top="0" tabpos="4">
+		<Cursor position="16" topLine="0" />
+	</File>
+	<File name="HexUtils.h" open="0" top="0" tabpos="5">
+		<Cursor position="12" topLine="0" />
+	</File>
+	<File name="Memory.cpp" open="0" top="0" tabpos="6">
 		<Cursor position="0" topLine="0" />
 	</File>
-	<File name="CPU.h" open="1" top="0" tabpos="1">
-		<Cursor position="38" topLine="0" />
-	</File>
-	<File name="Memory.cpp" open="0" top="0" tabpos="0">
-		<Cursor position="24" topLine="0" />
-	</File>
 	<File name="Memory.h" open="0" top="0" tabpos="3">
-		<Cursor position="194" topLine="0" />
+		<Cursor position="895" topLine="0" />
 	</File>
-	<File name="lib6502.h" open="0" top="0" tabpos="4">
-		<Cursor position="2" topLine="0" />
+	<File name="lib6502.h" open="0" top="0" tabpos="1">
+		<Cursor position="3" topLine="0" />
+	</File>
+	<File name="readIntelHex.cpp" open="0" top="0" tabpos="1">
+		<Cursor position="20" topLine="0" />
+	</File>
+	<File name="readIntelHex.h" open="0" top="0" tabpos="0">
+		<Cursor position="16" topLine="0" />
 	</File>
 	<File name="version.h" open="0" top="0" tabpos="7">
 		<Cursor position="161" topLine="0" />
